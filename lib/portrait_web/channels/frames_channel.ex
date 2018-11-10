@@ -8,9 +8,13 @@ defmodule PortraitWeb.FramesChannel do
   end
 
   # poc immediate response
-  def handle_in("ping", payload, socket) do
-    Task.async(fn -> process_ping(socket) end)
-    {:reply, :ok, socket}
+  def handle_in("frame_req", %{"frameId" => frameId, "frameContents" => frameContents} = payload, socket) do
+    Task.async(fn -> process_frame(socket, payload) end)
+    {:reply, {:ok, %{message: "thx hun"}}, socket}
+  end
+
+  def handle_in("frame_req", _payload, socket) do
+    {:reply, {:error, %{message: "malformed payload"}}, socket}
   end
 
   # not sure why I need this to suppress warning messages
@@ -19,8 +23,8 @@ defmodule PortraitWeb.FramesChannel do
   end
 
   # simulate API call
-  defp process_ping(socket) do
+  defp process_frame(socket, payload) do
     Process.sleep(1000)
-    broadcast(socket, "pong", %{jeans: "on", toast: true})
+    broadcast(socket, "frame_resp", %{payload: payload, toast: true})
   end
 end
