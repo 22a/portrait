@@ -2,7 +2,7 @@ defmodule PortraitWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", PortraitWeb.RoomChannel
+  channel "frames:*", PortraitWeb.FramesChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
