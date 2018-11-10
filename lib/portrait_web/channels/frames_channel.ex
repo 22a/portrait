@@ -24,7 +24,6 @@ defmodule PortraitWeb.FramesChannel do
 
   # simulate API call
   defp process_frame(socket, payload) do
-    Process.sleep(1000)
     broadcast(socket, "frame_resp", %{payload: payload, toast: true})
   end
 end

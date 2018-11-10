@@ -1,3 +1,5 @@
 do the thing:
 
 <button onclick="coolClickHandler()">click-a-me</button>
+
+<video id="videoh" height="320" width="240" preload="none" autoplay="autoplay"></video>
