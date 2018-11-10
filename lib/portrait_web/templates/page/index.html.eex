@@ -1,5 +1,7 @@
 do the thing:
 
-<button onclick="coolClickHandler()">click-a-me</button>
+<button onclick="startVideoStream()">enable camera</button>
+<button onclick="sendFrame()">send frame</button>
+<button onclick="switchCamera()">switch camera</button>
 
-<video id="videoh" height="320" width="240" preload="none" autoplay="autoplay"></video>
+<video height=320 id="videoh" preload="none" autoplay="autoplay" playsinline></video>
